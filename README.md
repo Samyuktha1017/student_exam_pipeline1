@@ -2,7 +2,6 @@
 
 This repository demonstrates an end-to-end (E2E) ML pipeline using modular, Dockerized components (bricks), centered around **Feast Feature Store** for historical feature retrieval.
 
----
 
  Objective
 
@@ -31,8 +30,6 @@ GitHub Raw Links (for Elyra or Kubeflow)
 
 
 Elyra Pipeline Flow
-
-```mermaid
 graph TD
     A[get_features] --> B[train_model]
     B --> C[predict_student]
