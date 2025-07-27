@@ -1,0 +1,22 @@
+name: Predict Student Result
+description: Use trained model to predict student pass/fail status
+
+inputs:
+  - name: input_csv
+    type: String
+  - name: model_path
+    type: String
+
+outputs:
+  - name: output_csv
+    type: String
+
+implementation:
+  container:
+    image: samyukthagudiya17/predict_student:latest
+    command: [
+      "python", "predict_student.py",
+      "--input_csv", "{inputValue: input_csv}",
+      "--model_path", "{inputValue: model_path}",
+      "--output_csv", "{outputPath: output_csv}"
+    ]

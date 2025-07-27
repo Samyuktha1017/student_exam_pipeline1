@@ -1,0 +1,19 @@
+name: Train Model
+description: Train a logistic regression model on student features
+
+inputs:
+  - name: input_csv
+    type: String
+
+outputs:
+  - name: model_output
+    type: String
+
+implementation:
+  container:
+    image: samyukthagudiya17/train_model:latest
+    command: [
+      "python", "train_model.py",
+      "--input_csv", "{inputValue: input_csv}",
+      "--model_output", "{outputPath: model_output}"
+    ]

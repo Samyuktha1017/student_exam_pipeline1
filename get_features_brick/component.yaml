@@ -1,0 +1,22 @@
+name: Get Historical Features from Feast
+description: A reusable component to fetch historical features from Feast.
+inputs:
+  - name: entity_csv
+    type: String
+  - name: feature_view_name
+    type: String
+  - name: repo_path
+    type: String
+outputs:
+  - name: output_csv
+    type: String
+implementation:
+  container:
+    image: samyukthagudiya17/get_features:latest
+    command: [
+      "python", "get_features.py",
+      "--entity_csv", "{inputValue: entity_csv}",
+      "--feature_view_name", "{inputValue: feature_view_name}",
+      "--repo_path", "{inputValue: repo_path}",
+      "--output_csv", "{outputPath: output_csv}"
+    ]
